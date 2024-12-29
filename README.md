@@ -3,19 +3,28 @@ YUSUF İSLAM YILMAZ - 220306019
 
 Bu doküman, bizim Market Uygulaması'nın nasıl çalıştığını ve neler yaptığını anlatıyor. Uygulama C# dilinde yazıldı ve iki bölümden oluşuyor:
 1)	MarketConsoleApp: Kullanıcının konsoldan işlemler yapabildiği ana bölüm.
+
 2)	MarketLibrary: Uygulamanın arka planda çalışan kısımları, yani iş mantığı ve sınıflar.
 
 I. UYGULAMANIN ÖZELLİKLERİ
 
 1.	Ürün Ekleme
 Kullanıcı, markete şu türde ürünler ekleyebiliyor:
+
 •	Temel Gıda
+
 •	İçecek
+
 •	Atıştırmalık
+
 Her ürün için aşağıdaki bilgiler isteniyor:
+
 •	Ürün Adı
+
 •	Fiyat
+
 •	Stok Miktarı
+
 •	Barkod Numarası (Benzersiz olmalı)
 
 Ürün Ekleme Özellikleri
