@@ -1,5 +1,7 @@
 MARKET UYGULAMASI PROJE DÖKÜMANI
+
 YUSUF İSLAM YILMAZ - 220306019
+
 
 Bu doküman, bizim Market Uygulaması'nın nasıl çalıştığını ve neler yaptığını anlatıyor. Uygulama C# dilinde yazıldı ve iki bölümden oluşuyor:
 1)	MarketConsoleApp: Kullanıcının konsoldan işlemler yapabildiği ana bölüm.
