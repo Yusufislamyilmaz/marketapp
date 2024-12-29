@@ -4,3 +4,9 @@ C:\Users\Yusuf\source\repos\MarketLibrary\MarketLibrary\obj\Debug\MarketLibrary.
 C:\Users\Yusuf\source\repos\MarketLibrary\MarketLibrary\obj\Debug\MarketLibrary.dll
 C:\Users\Yusuf\source\repos\MarketLibrary\MarketLibrary\obj\Debug\MarketLibrary.pdb
 C:\Users\Yusuf\source\repos\MarketLibrary\MarketLibrary\obj\Debug\MarketLibrary.csproj.AssemblyReference.cache
+C:\Users\Yusuf\source\repos\MarketApp\MarketLibrary\bin\Debug\MarketLibrary.dll
+C:\Users\Yusuf\source\repos\MarketApp\MarketLibrary\bin\Debug\MarketLibrary.pdb
+C:\Users\Yusuf\source\repos\MarketApp\MarketLibrary\obj\Debug\MarketLibrary.csproj.AssemblyReference.cache
+C:\Users\Yusuf\source\repos\MarketApp\MarketLibrary\obj\Debug\MarketLibrary.csproj.CoreCompileInputs.cache
+C:\Users\Yusuf\source\repos\MarketApp\MarketLibrary\obj\Debug\MarketLibrary.dll
+C:\Users\Yusuf\source\repos\MarketApp\MarketLibrary\obj\Debug\MarketLibrary.pdb

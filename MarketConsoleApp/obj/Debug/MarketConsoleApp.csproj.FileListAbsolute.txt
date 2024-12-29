@@ -8,3 +8,13 @@ C:\Users\Yusuf\source\repos\MarketLibrary\MarketConsoleApp\obj\Debug\MarketConso
 C:\Users\Yusuf\source\repos\MarketLibrary\MarketConsoleApp\obj\Debug\MarketConsoleApp.csproj.CopyComplete
 C:\Users\Yusuf\source\repos\MarketLibrary\MarketConsoleApp\obj\Debug\MarketConsoleApp.exe
 C:\Users\Yusuf\source\repos\MarketLibrary\MarketConsoleApp\obj\Debug\MarketConsoleApp.pdb
+C:\Users\Yusuf\source\repos\MarketApp\MarketConsoleApp\obj\Debug\MarketConsoleApp.csproj.AssemblyReference.cache
+C:\Users\Yusuf\source\repos\MarketApp\MarketConsoleApp\obj\Debug\MarketConsoleApp.csproj.CoreCompileInputs.cache
+C:\Users\Yusuf\source\repos\MarketApp\MarketConsoleApp\obj\Debug\MarketConsoleApp.exe
+C:\Users\Yusuf\source\repos\MarketApp\MarketConsoleApp\obj\Debug\MarketConsoleApp.pdb
+C:\Users\Yusuf\source\repos\MarketApp\MarketConsoleApp\bin\Debug\MarketConsoleApp.exe.config
+C:\Users\Yusuf\source\repos\MarketApp\MarketConsoleApp\bin\Debug\MarketConsoleApp.exe
+C:\Users\Yusuf\source\repos\MarketApp\MarketConsoleApp\bin\Debug\MarketConsoleApp.pdb
+C:\Users\Yusuf\source\repos\MarketApp\MarketConsoleApp\bin\Debug\MarketLibrary.dll
+C:\Users\Yusuf\source\repos\MarketApp\MarketConsoleApp\bin\Debug\MarketLibrary.pdb
+C:\Users\Yusuf\source\repos\MarketApp\MarketConsoleApp\obj\Debug\MarketConsoleApp.csproj.CopyComplete

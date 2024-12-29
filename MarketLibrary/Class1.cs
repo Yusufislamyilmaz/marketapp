@@ -1,17 +1,16 @@
-﻿using System;
+﻿// Class1.cs
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
 namespace MarketLibrary
 {
-    // IUrun arayüzü (Dependency Inversion için)
     public interface IUrun
     {
         int Barkod { get; }
         string UrunBilgisi();
     }
 
-    // Soyut Ürün sınıfı (Abstraction için)
     public abstract class Urun : IUrun
     {
         private string ad;
@@ -40,7 +39,7 @@ namespace MarketLibrary
         public int Barkod
         {
             get => barkod;
-            set => barkod = value <= 0 ? new Random().Next(100000, 999999) : value; // Barkod sıfır veya negatif olamaz, rastgele bir değer atandı
+            set => barkod = value <= 0 ? new Random().Next(100000, 999999) : value;
         }
 
         public Urun(string ad, decimal fiyat, int stok, int barkod)
@@ -54,7 +53,6 @@ namespace MarketLibrary
         public abstract string UrunBilgisi();
     }
 
-    // Türetilmiş sınıflar
     public class TemelGida : Urun
     {
         public TemelGida(string ad, decimal fiyat, int stok, int barkod) : base(ad, fiyat, stok, barkod) { }
@@ -92,16 +90,6 @@ namespace MarketLibrary
         public Market()
         {
             urunler = new List<IUrun>();
-
-            // Başlangıçta ürünler ekliyoruz
-            UrunEkle(new TemelGida("Ekmek", 7.5m, 20, 0101));
-            UrunEkle(new TemelGida("Yumurta 15'li", 90.0m, 15, 0102));
-
-            UrunEkle(new Icecek("Su", 5m, 100, 0201));
-            UrunEkle(new Icecek("Limonata", 18.5m, 50, 0202));
-
-            UrunEkle(new Atistirmalik("Cips", 27.5m, 40, 0301));
-            UrunEkle(new Atistirmalik("Çikolata", 12.5m, 75, 0302));
         }
 
         public void UrunEkle(IUrun urun)
@@ -123,6 +111,100 @@ namespace MarketLibrary
                 return true;
             }
             return false;
+        }
+
+        public bool UrunGuncelle(int barkod)
+        {
+            var urun = urunler.FirstOrDefault(u => u.Barkod == barkod) as Urun;
+            if (urun != null)
+            {
+                Console.Write("Yeni ürün adını girin: ");
+                while (true)
+                {
+                    string yeniAd = Console.ReadLine();
+                    if (!string.IsNullOrWhiteSpace(yeniAd))
+                    {
+                        urun.Ad = yeniAd;
+                        break;
+                    }
+                    Console.WriteLine("Geçersiz ad. Lütfen tekrar deneyin.");
+                }
+
+                Console.Write("Yeni ürün fiyatını girin: ");
+                while (true)
+                {
+                    if (decimal.TryParse(Console.ReadLine(), out decimal yeniFiyat) && yeniFiyat >= 0)
+                    {
+                        urun.Fiyat = yeniFiyat;
+                        break;
+                    }
+                    Console.WriteLine("Geçersiz fiyat. Lütfen tekrar deneyin.");
+                }
+
+                Console.Write("Yeni stok miktarını girin: ");
+                while (true)
+                {
+                    if (int.TryParse(Console.ReadLine(), out int yeniStok) && yeniStok >= 0)
+                    {
+                        urun.Stok = yeniStok;
+                        break;
+                    }
+                    Console.WriteLine("Geçersiz stok miktarı. Lütfen tekrar deneyin.");
+                }
+
+                return true;
+            }
+            return false;
+        }
+
+        public void SaveToCsv(string filePath)
+        {
+            var lines = new List<string> { "Tür,Ad,Fiyat,Stok,Barkod" };
+            foreach (var urun in urunler)
+            {
+                if (urun is TemelGida gida)
+                {
+                    lines.Add($"TemelGıda,{gida.Ad},{gida.Fiyat},{gida.Stok},{gida.Barkod}");
+                }
+                else if (urun is Icecek icecek)
+                {
+                    lines.Add($"İçecek,{icecek.Ad},{icecek.Fiyat},{icecek.Stok},{icecek.Barkod}");
+                }
+                else if (urun is Atistirmalik atistirmalik)
+                {
+                    lines.Add($"Atıştırmalık,{atistirmalik.Ad},{atistirmalik.Fiyat},{atistirmalik.Stok},{atistirmalik.Barkod}");
+                }
+            }
+            System.IO.File.WriteAllLines(filePath, lines);
+        }
+
+        public void LoadFromCsv(string filePath)
+        {
+            if (!System.IO.File.Exists(filePath)) return;
+
+            var lines = System.IO.File.ReadAllLines(filePath);
+            foreach (var line in lines.Skip(1)) // İlk satır başlık
+            {
+                var parts = line.Split(',');
+                var tur = parts[0];
+                var ad = parts[1];
+                var fiyat = decimal.Parse(parts[2]);
+                var stok = int.Parse(parts[3]);
+                var barkod = int.Parse(parts[4]);
+
+                if (tur == "TemelGıda")
+                {
+                    UrunEkle(new TemelGida(ad, fiyat, stok, barkod));
+                }
+                else if (tur == "İçecek")
+                {
+                    UrunEkle(new Icecek(ad, fiyat, stok, barkod));
+                }
+                else if (tur == "Atıştırmalık")
+                {
+                    UrunEkle(new Atistirmalik(ad, fiyat, stok, barkod));
+                }
+            }
         }
     }
 }
